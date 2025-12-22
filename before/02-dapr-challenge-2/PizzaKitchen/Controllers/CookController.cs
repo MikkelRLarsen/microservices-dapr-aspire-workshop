@@ -21,7 +21,7 @@ public class CookController : ControllerBase
     public async Task<ActionResult<Order>> Cook(Order order)
     {
         _logger.LogInformation("Starting cooking for order: {OrderId}", order.OrderId);
-        var result = await _cookingService.CookPizzaAsync(order);
+        var result = await _cookService.CookPizzaAsync(order);
         return Ok(result);
     }
 }
