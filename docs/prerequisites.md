@@ -10,6 +10,7 @@ Download and install the following locally:
 - [Feature Flags - Optional but recommended](https://marketplace.visualstudio.com/items?itemName=PaulHarrington.FeatureFlagsPreview)
   - Remember to set Dapr flag
 
+- [Postman](https://www.postman.com/downloads/)
 - [Powershell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4) (for Windows users)
 
 

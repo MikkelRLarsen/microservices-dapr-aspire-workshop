@@ -570,9 +570,11 @@ dapr run --app-id pizza-workflow --app-protocol http --app-port 8005 --dapr-http
 
 
 
-## Test the service
+## Test the service (Postman)
 
-Open `Endpoints.http` and start a new workflow sending the request on `Start a new pizza order workflow`.
+Open Postman and import `microservices-dapr-aspire-workshop.postman_collection.json`
+
+Execute `Start a new pizza order workflow`
 
 Navigate to the `pizza-workflow` terminal, where you should see the following logs pop up with all the events being updated:
 

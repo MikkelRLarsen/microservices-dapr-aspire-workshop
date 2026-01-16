@@ -57,10 +57,15 @@ builder.AddProject<PizzaOrder>("pizzaorderservice")
 builder.Build().Run();
 ```
 
-## Test the service
-Add the `Endpoints.http` in the `start-here` folder to the solution.
 
-Open the `Endpoints.http` and place a new order by clicking the button `Send request` under `Direct Pizza Order Endpoint (for testing)`. Expected Body result:
+
+## Test the service (Postman)
+
+Open Postman and import `microservices-dapr-aspire-workshop.postman_collection.json`
+
+Execute `Direct Pizza Order Endpoint`
+
+Expected Body result:
 
 ```json
 {

@@ -225,28 +225,11 @@ INFO[0000] Component loaded: pizzastatestore (state.redis/v1)  app_id=pizza-stor
 
 
 
-## Test the service
+## Test the service (Postman)
 
-Open the `Endpoints.http` file located in the `before\shared` folder and place a new order by clicking the button `Send request` under `Direct Pizza Order Endpoint (for testing)`:
+Open Postman and import `microservices-dapr-aspire-workshop.postman_collection.json`
 
-![send-request](/imgs/rest-request.png)
-
-```http
-### Direct Pizza Order Endpoint (for testing)
-POST {{pizzaOrderUrl}}/order
-Content-Type: application/json
-
-{
-    "orderId": "123",
-    "pizzaType": "pepperoni",
-    "size": "large",
-    "customer": {
-        "name": "John Doe",
-        "address": "123 Main St",
-        "phone": "555-0123"
-    }
-}
-```
+Execute `Direct Pizza Order Endpoint`
 
 Run the `GET` and `DELETE` requests situated below to get and delete the order as well.
 

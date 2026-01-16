@@ -89,10 +89,11 @@ builder.Build().Run();
 
 ```
 
-## Test the service
-Add the `Endpoints.http` in the `start-here` folder to the solution.
+## Test the service (Postman)
 
-Open `Endpoints.http` and find the `Direct Pizza Store Endpoint (for testing)` endpoint call. Click on `Send request`
+Open Postman and import `microservices-dapr-aspire-workshop.postman_collection.json`
+
+Execute `Direct Pizza Store Endpoint`
 
 In Aspire Dashboard: Navigate to the `pizzastorefrontservice` Console logs, where you should see the following logs:
 

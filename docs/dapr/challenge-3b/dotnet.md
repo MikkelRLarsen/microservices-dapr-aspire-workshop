@@ -508,9 +508,13 @@ Check the Dapr and application logs for all four services. You should now see th
 INFO[0000] Component loaded: pizzapubsub (pubsub.redis/v1)  app_id=pizza-storefront instance=diagrid.local scope=dapr.runtime.processor 
 ```
 
-## Test the service
 
-Open `Endpoints.http` and create a new order sending the request on `Direct Pizza Store Endpoint (for testing)`, similar to what was done previous challenge.
+
+## Test the service (Postman)
+
+Open Postman and import `microservices-dapr-aspire-workshop.postman_collection.json`
+
+Execute `Direct Pizza Store Endpoint`
 
 Navigate to the `PizzaOrder` terminal, where you should see the following logs pop up with all the events being updated:
 

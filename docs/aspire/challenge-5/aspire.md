@@ -973,13 +973,14 @@ docker exec -i dapr_redis redis-cli FLUSHALL
 
 
 
-#### Test setup  
-Add the `Endpoints.http` in the `start-here` folder to the solution.
+#### Test setup  (Postman)
+Open Postman and import `microservices-dapr-aspire-workshop.postman_collection.json`
 
-#### Execute code
-Open `Endpoints.http` and start a new workflow sending the request on `Start a new pizza order workflow`
+Execute `Start a new pizza order workflow`
 
-Then send the request `Validate pizza (approve)`
+Wait for the output line (in Aspire Console logs) `Order 1 cooked with status cooked` 
+
+Then execute `Validate pizza (approve)`
 
 #### Check result
 In Aspire Dashboard: Navigate to the `pizzaworkflowservice` Console logs, where you should see the following logs:

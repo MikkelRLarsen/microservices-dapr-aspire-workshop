@@ -156,12 +156,11 @@ Delete `CloudEvent`
 
 Delete the `resources` folder
 
+## Test the service (Postman)
 
-## Test the service
+Open Postman and import `microservices-dapr-aspire-workshop.postman_collection.json`
 
-Add the `Endpoints.http` in the `start-here` folder to the solution.
-
-Open `Endpoints.http` and create a new order sending the request on `Direct Pizza Store Endpoint (for testing)`, similar to what was done previous challenge.
+Execute `Direct Pizza Store Endpoint`
 
 In Aspire Dashboard: Navigate to the `pizzaorderservice` Console logs, where you should see the following logs:
 

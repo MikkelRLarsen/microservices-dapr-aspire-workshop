@@ -340,9 +340,11 @@ This command uses the `dapr.yaml` file run the system.
 
 
 
-## Test the service
+## Test the service (Postman)
 
-Open `Endpoints.http` and find the `Direct Pizza Store Endpoint (for testing)` endpoint call. Click on `Send request`
+Open Postman and import `microservices-dapr-aspire-workshop.postman_collection.json`
+
+Execute `Direct Pizza Store Endpoint`
 
 Navigate to the `pizza-storefront` terminal, where you should see the following logs:
 

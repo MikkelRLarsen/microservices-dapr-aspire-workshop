@@ -198,14 +198,15 @@ app.Run();
 
 Delete `CloudEvent`
 
+## Test the service (Postman)
 
-## Test the service
+Open Postman and import `microservices-dapr-aspire-workshop.postman_collection.json`
 
-Add the `Endpoints.http` in the `start-here` folder to the solution.
+Execute `Start a new pizza order workflow`
 
-Open `Endpoints.http` and start a new workflow sending the request on `Start a new pizza order workflow`
+Wait for the output line (in Aspire Console logs) `Order 1 cooked with status cooked` 
 
-Then send the request `Validate pizza (approve)`
+Then execute `Validate pizza (approve)`
 
 In Aspire Dashboard: Navigate to the `pizzaworkflowservice` Console logs, where you should see the following logs:
 
