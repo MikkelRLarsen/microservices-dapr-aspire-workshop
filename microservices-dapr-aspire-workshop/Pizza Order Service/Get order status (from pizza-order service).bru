@@ -1,0 +1,15 @@
+meta {
+  name: Get order status (from pizza-order service)
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{pizzaOrderUrl}}/order/123
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

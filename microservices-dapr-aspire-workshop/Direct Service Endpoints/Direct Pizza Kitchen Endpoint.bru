@@ -1,0 +1,30 @@
+meta {
+  name: Direct Pizza Kitchen Endpoint
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{pizzaKitchenUrl}}/cook
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "OrderId": "123",
+      "pizzaType": "pepperoni",
+      "size": "large",
+      "status": "ordered",
+          "customer": {
+          "name": "John Doe",
+          "address": "123 Main St",
+          "phone": "555-0123"
+      }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

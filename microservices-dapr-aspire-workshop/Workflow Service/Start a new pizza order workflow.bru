@@ -1,0 +1,29 @@
+meta {
+  name: Start a new pizza order workflow
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{pizzaWorkflowUrl}}/workflow/start-order
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "orderId": "1",
+      "pizzaType": "pepperoni",
+      "size": "large",
+      "customer": {
+          "name": "John Doe",
+          "address": "123 Main St",
+          "phone": "555-0123"
+      }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

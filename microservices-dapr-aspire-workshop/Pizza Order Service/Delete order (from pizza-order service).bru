@@ -1,0 +1,15 @@
+meta {
+  name: Delete order (from pizza-order service)
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{pizzaOrderUrl}}/order/123
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
