@@ -4,6 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSingleton<IOrderStateService, OrderStateService>();
+builder.Services.AddControllers().AddDapr();
 
 var app = builder.Build();
 
