@@ -14,7 +14,6 @@ if (app.Environment.IsDevelopment())
 }
 
 
-app.UseCloudEvents();
 app.MapControllers();
 app.Run();
 

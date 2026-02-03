@@ -20,7 +20,7 @@ apps:
   - dotnet
   - run
 - appDirPath: PizzaOrder
-  appID: pizzaorder
+  appID: pizza-order
   appPort: 8001
   command:
   - dotnet
