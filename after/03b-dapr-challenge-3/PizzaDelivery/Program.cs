@@ -13,9 +13,6 @@ if (app.Environment.IsDevelopment())
 
 }
 
-// Dapr will send serialized event object vs. being raw CloudEvent
-app.UseCloudEvents();
-
 app.MapControllers();
 app.Run();
 

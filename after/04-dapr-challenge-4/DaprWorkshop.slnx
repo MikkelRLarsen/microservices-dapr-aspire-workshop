@@ -4,6 +4,7 @@
     <File Path="../shared/resources/pubsub.yaml" />
     <File Path="../shared/resources/statestore.yaml" />
     <File Path="../shared/resources/subscription.yaml" />
+    <File Path="dapr.yaml" />
   </Folder>
   <Project Path="PizzaDelivery/PizzaDelivery.csproj" />
   <Project Path="PizzaKitchen/PizzaKitchen.csproj" />

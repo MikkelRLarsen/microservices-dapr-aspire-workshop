@@ -1,5 +1,5 @@
 common:
-  resourcesPath: ../shared/resources
+  resourcesPath: ../shared/resources-declarative
 apps:
 - appDirPath: PizzaStorefront
   appID: pizza-storefront

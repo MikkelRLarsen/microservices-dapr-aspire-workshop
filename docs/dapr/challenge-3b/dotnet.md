@@ -212,7 +212,7 @@ builder.Services.AddControllers().AddDapr();
 
 ## Register the CloudEvents
 
-Inside the `PizzaKitchen`, `PizzaStorefront`,  `PizzaOrder` and the `PizzaDelivery` services, open `Program.cs` and add the `UseCloudEvents` registration to the *request pipeline*:
+Inside the *subscriber* (`PizzaOrder`) open `Program.cs` and add the `UseCloudEvents` registration to the *request pipeline*:
 
 ```csharp
 var app = builder.Build();
@@ -423,12 +423,12 @@ Navigate to the `PizzaOrder` service folder. Inside `/Controllers/OrderControlle
 ```csharp
     [HttpPost("/orders-sub")]
     [Topic("pizzapubsub", "orders")]
-    public async Task<IActionResult> HandleOrderUpdate(Order cloudEvent)
+    public async Task<IActionResult> HandleOrderUpdate(Order order)
     {
-        _logger.LogInformation("Received order update for order {OrderId}",
-            cloudEvent.OrderId);
+        _logger.LogInformation("Received order update for order {OrderId}", 
+            order.OrderId);
 
-        await _orderStateService.UpdateOrderStateAsync(cloudEvent);
+        var result = await _orderStateService.UpdateOrderStateAsync(order);
         return Ok();
     }
 ```
@@ -510,9 +510,16 @@ INFO[0000] Component loaded: pizzapubsub (pubsub.redis/v1)  app_id=pizza-storefr
 
 
 
-## Test the service (Postman)
+## The Dapr Dashboard
+
+Run Dapr Dashboard and check for errors
+
+
+## Test the service (Postman or Bruno)
 
 Open Postman and import `microservices-dapr-aspire-workshop.postman_collection.json`
+
+Or open Bruno and open collection folder `01-microservices-dapr-aspire-workshop\microservices-dapr-aspire-workshop`
 
 Execute `Direct Pizza Store Endpoint`
 

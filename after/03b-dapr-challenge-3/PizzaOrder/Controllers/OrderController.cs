@@ -50,12 +50,12 @@ public class OrderController : ControllerBase
 
     [HttpPost("/orders-sub")]
     [Topic("pizzapubsub", "orders")]
-    public async Task<IActionResult> HandleOrderUpdate(Order cloudEvent)
+    public async Task<IActionResult> HandleOrderUpdate(Order order)
     {
         _logger.LogInformation("Received order update for order {OrderId}",
-            cloudEvent.OrderId);
+            order.OrderId);
 
-        await _orderStateService.UpdateOrderStateAsync(cloudEvent);
+        await _orderStateService.UpdateOrderStateAsync(order);
         return Ok();
     }
 }
