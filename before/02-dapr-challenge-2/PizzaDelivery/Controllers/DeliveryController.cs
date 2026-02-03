@@ -17,7 +17,7 @@ public class DeliveryController : ControllerBase
         _logger = logger;
     }
 
-    [HttpPost]
+    [HttpPost("deliver")]
     public async Task<ActionResult<Order>> Deliver(Order order)
     {
         _logger.LogInformation("Starting delivery for order: {OrderId}", order.OrderId);
