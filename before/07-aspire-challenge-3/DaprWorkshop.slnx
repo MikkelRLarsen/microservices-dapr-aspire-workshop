@@ -5,6 +5,8 @@
     <File Path="../aspire-shared/resources/statestore.yaml" />
     <File Path="../aspire-shared/resources/subscription.yaml" />
   </Folder>
+  <Project Path="DaprWorkshop.AppHost/DaprWorkshop.AppHost.csproj" Id="b71fff80-3d92-42ec-b60b-67a2a5eabb6b" />
+  <Project Path="DaprWorkshop.ServiceDefaults/DaprWorkshop.ServiceDefaults.csproj" />
   <Project Path="PizzaDelivery/PizzaDelivery.csproj" />
   <Project Path="PizzaKitchen/PizzaKitchen.csproj" />
   <Project Path="PizzaOrder/PizzaOrder.csproj" />

@@ -9,4 +9,7 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
     <PackageReference Include="Scalar.AspNetCore" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DaprWorkshop.ServiceDefaults\DaprWorkshop.ServiceDefaults.csproj" />
+  </ItemGroup>
 </Project>
