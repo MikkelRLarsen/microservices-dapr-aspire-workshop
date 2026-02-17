@@ -27,9 +27,13 @@ public class WorkflowController : ControllerBase
         {
             _logger.LogInformation("Starting workflow for order {OrderId}", order.OrderId);
 
-            //TODO: Start the PizzaOrderingWorkflow workflow
+			await _daprWorkflowClient.ScheduleNewWorkflowAsync(
+	            nameof(PizzaOrderingWorkflow),
+	            instanceId,
+	            order
+            );
 
-            _logger.LogInformation("Workflow started successfully for order {OrderId}", order.OrderId);
+			_logger.LogInformation("Workflow started successfully for order {OrderId}", order.OrderId);
 
             return Ok(new
             {
@@ -55,9 +59,13 @@ public class WorkflowController : ControllerBase
             _logger.LogInformation("Raising validation event for order {OrderId}. Approved: {Approved}",
                 validation.OrderId, validation.Approved);
 
-            //TODO: Raise the ValidationComplete event
+			await _daprWorkflowClient.RaiseEventAsync(
+	            instanceId,
+	            "ValidationComplete",
+	            validation
+            );
 
-            _logger.LogInformation("Validation event raised successfully for order {OrderId}",
+			_logger.LogInformation("Validation event raised successfully for order {OrderId}",
                 validation.OrderId);
 
             return Ok(new
@@ -82,10 +90,9 @@ public class WorkflowController : ControllerBase
         {
             _logger.LogInformation("Getting workflow status for order {OrderId}", request.OrderId);
 
-            //TODO: Get workflow status
-            var status = "replace me"; // Placeholder for actual status
+			var status = await _daprWorkflowClient.GetWorkflowStateAsync(instanceId);
 
-            _logger.LogInformation("Workflow status retrieved successfully for order {OrderId}", request.OrderId);
+			_logger.LogInformation("Workflow status retrieved successfully for order {OrderId}", request.OrderId);
 
             return Ok(new
             {
@@ -109,9 +116,9 @@ public class WorkflowController : ControllerBase
         {
             _logger.LogInformation("Pausing workflow for order {OrderId}", request.OrderId);
 
-            //TODO: Pause workflow
+			await _daprWorkflowClient.SuspendWorkflowAsync(instanceId);
 
-            _logger.LogInformation("Workflow paused successfully for order {OrderId}", request.OrderId);
+			_logger.LogInformation("Workflow paused successfully for order {OrderId}", request.OrderId);
 
             return Ok(new
             {
@@ -135,9 +142,9 @@ public class WorkflowController : ControllerBase
         {
             _logger.LogInformation("Resuming workflow for order {OrderId}", request.OrderId);
 
-            //TODO: Resume workflow
+			await _daprWorkflowClient.ResumeWorkflowAsync(instanceId);
 
-            _logger.LogInformation("Workflow resumed successfully for order {OrderId}", request.OrderId);
+			_logger.LogInformation("Workflow resumed successfully for order {OrderId}", request.OrderId);
 
             return Ok(new
             {
@@ -161,9 +168,9 @@ public class WorkflowController : ControllerBase
         {
             _logger.LogInformation("Cancelling workflow for order {OrderId}", request.OrderId);
 
-            // TODO: Implement workflow termination call
+			await _daprWorkflowClient.TerminateWorkflowAsync(instanceId);
 
-            _logger.LogInformation("Workflow cancelled successfully for order {OrderId}", request.OrderId);
+			_logger.LogInformation("Workflow cancelled successfully for order {OrderId}", request.OrderId);
 
             return Ok(new
             {
