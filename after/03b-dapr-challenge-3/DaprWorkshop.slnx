@@ -3,6 +3,7 @@
     <File Path="../shared/Endpoints.http" />
     <File Path="../shared/resources/pubsub.yaml" />
     <File Path="../shared/resources/statestore.yaml" />
+    <File Path="dapr.yaml" />
   </Folder>
   <Project Path="PizzaDelivery/PizzaDelivery.csproj" />
   <Project Path="PizzaKitchen/PizzaKitchen.csproj" />

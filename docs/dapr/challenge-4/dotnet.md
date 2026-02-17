@@ -570,9 +570,16 @@ dapr run --app-id pizza-workflow --app-protocol http --app-port 8005 --dapr-http
 
 
 
-## Test the service (Postman)
+## The Dapr Dashboard
+
+Run Dapr Dashboard and check for errors
+
+
+## Test the service (Postman or Bruno)
 
 Open Postman and import `microservices-dapr-aspire-workshop.postman_collection.json`
+
+Or open Bruno and open collection folder `01-microservices-dapr-aspire-workshop\microservices-dapr-aspire-workshop`
 
 Execute `Start a new pizza order workflow`
 

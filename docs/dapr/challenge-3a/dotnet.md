@@ -233,7 +233,7 @@ builder.Services.AddControllers().AddDapr();
 
 ## Register the CloudEvents
 
-Inside the `PizzaKitchen`, `PizzaStorefront`,  `PizzaOrder` and the `PizzaDelivery` services, open `Program.cs` and add the `UseCloudEvents` registration to the *request pipeline*:
+Inside the *subscriber* (`PizzaOrder`) open `Program.cs` and add the `UseCloudEvents` registration to the *request pipeline*:
 
 ```csharp
 var app = builder.Build();
@@ -249,6 +249,12 @@ app.UseCloudEvents();
 app.MapControllers();
 app.Run();
 ```
+
+
+
+In publishers Dapr will use CloudEvents by default.
+
+
 
 ## Update the Kitchen service to publish messages to the message broker
 
@@ -442,15 +448,15 @@ Now that you've published the events to the topic `orders` in the message broker
 Navigate to the `PizzaOrder` service folder. Inside `/Controllers/OrderController.cs` find the  the route `/order-sub`:
 
 ```csharp
-[HttpPost("/orders-sub")]
-public async Task<IActionResult> HandleOrderUpdate(CloudEvent<Order> cloudEvent)
-{
-    _logger.LogInformation("Received order update for order {OrderId}", 
-        cloudEvent.Data.OrderId);
+    [HttpPost("/orders-sub")]
+    public async Task<IActionResult> HandleOrderUpdate(Order order)
+    {
+        _logger.LogInformation("Received order update for order {OrderId}", 
+            order.OrderId);
 
-    var result = await _orderStateService.UpdateOrderStateAsync(cloudEvent.Data);
-    return Ok();
-}
+        var result = await _orderStateService.UpdateOrderStateAsync(order);
+        return Ok();
+    }
 ```
 
 Following the `subscription.yaml` file spec, every time a new message lands in the `orders` topic within the `pizzapubsub` pub/sub, it will be routed to this `/orders-sub` topic. The message will then be sent to the previously created function that creates or updates the message in the state store, created in the first challenge.
@@ -505,9 +511,18 @@ Check the Dapr and application logs for all four services. You should now see th
 INFO[0000] Component loaded: pizzapubsub (pubsub.redis/v1)  app_id=pizza-storefront instance=diagrid.local scope=dapr.runtime.processor 
 ```
 
-## Test the service (Postman)
+
+
+## The Dapr Dashboard
+Run Dapr Dashboard and check for errors
+
+
+
+## Test the service (Postman or Bruno)
 
 Open Postman and import `microservices-dapr-aspire-workshop.postman_collection.json`
+
+Or open Bruno and open collection folder `01-microservices-dapr-aspire-workshop\microservices-dapr-aspire-workshop`
 
 Execute `Direct Pizza Store Endpoint`
 
