@@ -3,10 +3,14 @@ using PizzaKitchen.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.AddServiceDefaults();
+
 builder.Services.AddControllers().AddDapr();
 builder.Services.AddSingleton<ICookService, CookService>();
 
 var app = builder.Build();
+
+app.MapDefaultEndpoints();
 
 if (app.Environment.IsDevelopment())
 {
