@@ -4,6 +4,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	<ContainerPublish>true</ContainerPublish>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Dapr.AspNetCore" />
