@@ -37,9 +37,13 @@ builder.AddProject<PizzaOrder>("pizzaorderservice")
 
 //builder.AddPizzaStorefrontService();
 
-//var pizzaStorefrontRepo = builder.AddRepository(
-//	"pizzastorefrontRepo",
-//	"")
+var pizzaStorefrontRepo = builder.AddRepository(
+	"pizzastorefrontRepo",
+	"https://github.com/MikkelRLarsen/microservices-dapr-aspire-workshop.git",
+	c => c.WithDefaultBranch("main")
+		  .WithTargetPath("../.polyrepo-cache"));
+
+var pizzaStorefrontService = builder.AddProjectFromRepository("pizzastorefrontservice", pizzaStorefrontRepo, "before/06-aspire-challenge-2/DaprWorkshop.AppHostModule.csproj");
 
 
 builder.AddProject<PizzaKitchen>("pizzakitchenservice")
